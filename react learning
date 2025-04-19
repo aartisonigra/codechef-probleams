@@ -1,0 +1,82 @@
+ES6 Essentials
+Before we jump into the exciting world of React, let's get comfortable with some powerful features from a JavaScript update called ES6 (ECMAScript 2015). Think of ES6 as a major upgrade to JavaScript that makes writing code cleaner, more efficient, and easier to manage.
+
+Why learn this now? Because React code heavily uses these ES6 features! Understanding them first will make learning React much smoother. You'll see these patterns everywhere.
+
+In this lesson, we'll cover:
+
+let and const: Modern ways to declare variables.
+Arrow Functions (=>): A shorter, cleaner way to write functions.
+Destructuring: Easily unpacking values from arrays and objects.
+Spread (...) and Rest (...) Operators: Powerful tools for working with arrays and objects.
+async / await: Making asynchronous code (like fetching data) look synchronous and easier to read. Let's get started!
+let and const (Replacing var)
+The Old Way (var):
+Before ES6, we only had var to declare variables. var has some quirks, especially with how it scopes variables (where they are accessible), which could sometimes lead to bugs.
+
+The New Way (let and const):
+ES6 introduced let and const which provide block scoping. This means a variable declared inside a block (like an if statement or a for loop, denoted by { }) is only easily accessible within that block. This is usually what you want and helps prevent errors.
+
+let: Use let when you need a variable whose value might change later.
+
+let userAge = 25;
+console.log("Initial age:", userAge); // Output: Initial age: 25
+
+userAge = 26; // This is allowed!
+console.log("New age:", userAge); // Output: New age: 26
+
+if (true) {
+    let message = "Hello inside block";
+    console.log(message); // Output: Hello inside block
+}
+// console.log(message); // This would cause an error - message is not defined here!
+const: Use const (short for constant) when you declare a variable whose value should never be reassigned. This helps make your code safer and clearer about its intentions.
+Important Note: For objects and arrays declared with const, you can still change their contents (mutate them), but you cannot reassign the variable to a completely new object or array.
+
+const userName = "Alice";
+console.log("User:", userName); // Output: User: Alice
+
+// userName = "Bob"; // This would cause an error! Cannot reassign a const.
+
+const userSettings = { theme: "dark" };
+userSettings.theme = "light"; // This IS allowed (mutating the object)
+console.log(userSettings); // Output: { theme: 'light' }
+
+// userSettings = { fontSize: 12 }; // This would cause an error (reassignment)
+
+const numbers = [1, 2, 3];
+numbers.push(4); // This IS allowed (mutating the array)
+console.log(numbers); // Output: [ 1, 2, 3, 4 ]
+
+// numbers = [5, 6]; // This would cause an error (reassignment)
+
+
+* Variable Declarations
+What is the main advantage of using let and const over the older var keyword in JavaScript?
+
+ANSWER:
+ they intoducee block scoping making variable accessibility more predictable within {} blocks.
+
+**Declaring Immutable Variables
+You need to declare a variable to store a user's ID, which you are certain will not change after it's initially assigned. Which keyword is most appropriate according to the ES6 best practices described?
+
+ANSWER:
+const
+
+**Mutability of const Arrays
+const colors = ["red", "green", "blue"];
+
+colors[1] = "yellow";        
+colors.push("orange");       
+colors = ["pink", "white"];  
+
+ANSWERS:
+  Reassigning the entire array using colors = ["pink", "white"] will throw an error
+
+Explanation:
+When an array is declared using const, the reference to the array cannot change, but the contents of the array can still be modified.
+- colors[1] = "yellow" modifies an existing element — this is allowed.
+- colors.push("orange") adds a new element to the array — this is also allowed.
+- colors = ["pink", "white"] tries to assign a new array to the variable colors, which is not allowed because const prevents reassignment of the variable reference.
+
+                  
