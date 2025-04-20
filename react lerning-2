@@ -1,0 +1,68 @@
+Object and Array Mutability with const
+Consider the following code snippet:
+
+const userProfile = { name: "Alex", status: "active" };
+userProfile.status = "inactive";
+
+const tags = ["dev", "js"];
+tags.push("es6");
+
+Correct Answer:
+
+Both the status update (mutation) and adding a tag (mutation) are allowed because const only prevents reassigning the variable itself to a completely new object or array.
+Explanation:
+When you use const, you can’t change the whole variable (like assign a new object or array),
+but you can change the inside of that object or array (like update a property or add an item).
+So updating userProfile.status and pushing to tags is totally okay!
+
+------------------------------------------------------------------------------------
+Variable Scope and Mutation
+What will be logged to the console by the following code?
+
+const config = { id: 1 };
+
+config.id = 2;
+if (true) {
+  const config = { id: 3 }; 
+  config.id = 4;
+  console.log("Inside block:", config.id);
+}
+
+console.log("Outside block:", config.id);
+
+Correct Answer:
+
+Inside block: 4
+Outside block: 2
+Explanation:
+The outer config is a constant object, and we can change its properties, so config.id = 2 works fine.
+Inside the if block, a new config variable is declared (block-scoped), which is separate from the outer one.
+So, Inside block: 4 and Outside block: 2 are printed — no error occurs.
+
+-------------------------------------------------------------------------------
+Behavior of this in Arrow vs Regular Methods
+What will be the output of the following code ?
+
+const obj = {
+  name: "Codechef",
+  arrowFunc: () => {
+    console.log(this.name);
+  },
+  normalFunc() {
+    console.log(this.name);
+  }
+};
+
+obj.arrowFunc();
+obj.normalFunc();
+
+Correct Answer:
+
+undefined  
+Codechef
+Explanation:
+arrowFunc is an arrow function, which does not have its own this. It inherits this from its enclosing lexical context (likely the global object in non-strict mode, where this.name is undefined).
+
+
+
+normalFunc is a regular function defined inside the object, so its this refers to the obj, and this.name will correctly log "Codechef".
