@@ -1,0 +1,26 @@
+CALLBACK FUNCATION
+
+-what is a callback funcation?
+
+In React, a callback function is a function that is passed as a prop to a child component from a parent component, so the child can call it and communicate back to the parent.
+
+This is useful when the parent needs to be informed or take action based on what happens inside the child component.
+
+
+import React from 'react';
+import Child from './Child';
+
+function Parent() {
+  const handleMessage = (msg) => {
+    alert("Message from child: " + msg);
+  };
+
+  return (
+    <div>
+      <h1>Parent Component</h1>
+      <Child onSendMessage={handleMessage} />
+    </div>
+  );
+}
+
+export default Parent;
