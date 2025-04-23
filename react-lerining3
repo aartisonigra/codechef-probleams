@@ -24,3 +24,42 @@ function Parent() {
 }
 
 export default Parent;
+
+Synchronous vs Asynchronous JavaScript
+Let’s start with something relatable. Think about how you do tasks in real life. Sometimes you do things one after the other, right? Like making a sandwich: you get the bread, then you add the filling, then you put the top slice on. You can't really do the next step until the previous one is done.
+
+But other times, you might start something, and while it's happening, you do something else. Like putting laundry in the washing machine. You start it, and while it runs for an hour, you can go cook dinner, watch TV, or read a book. You don't just stand there waiting for the entire hour.
+
+So, what would you call that first way of doing things, one step strictly after the previous one finishes?
+And what about the second way, where you start something and can do other things while it runs in the background?
+The first way is generally called synchronous (synced up, one after another), and the second is asynchronous (not synced, tasks can happen independently of the main flow).
+
+Now, let's think about JavaScript:
+
+When you write typical JavaScript code, how do you think it usually runs? Does it generally execute line 1, wait for it to finish, then line 2, wait, then line 3? Or does it jump around, starting multiple things at once?
+
+console.log("Step 1: Get bread");
+console.log("Step 2: Add filling");
+console.log("Step 3: Put top slice");
+console.log("Step 4: Eat sandwich!");
+How would this code run in the console?
+
+By default, JavaScript is synchronous. It's also often described as single-threaded, meaning it has only one "thread" or process to execute commands. Think of it like a single chef in a kitchen who can only truly do one thing at a precise moment. They follow the recipe step-by-step.
+
+So, what's the potential problem here?
+
+Imagine one of our JavaScript steps takes a really long time. What if Step 2 wasn't "Add filling" but was "Go to the store miles away, buy rare cheese, come back"? In code terms, what if we had a command like:
+
+console.log("Starting data download...");
+// Imagine this function takes 10 seconds to complete
+let data = downloadDataFromServer("very-large-file.zip");
+console.log("Download complete!");
+console.log("Now processing data...");
+If JavaScript is synchronous and single-threaded, what happens to our program (and potentially the web page it's running on) during that 10-second downloadDataFromServer call? Can the user click buttons? Can animations run?
+
+This is called blocking. Because JavaScript waits for the long task to finish, it can't do anything else. The entire user interface becomes unresponsive. The browser tab might even show a "Page Unresponsive" warning. That's a terrible user experience! We can't have our apps freezing every time they need to wait for something like a network request or a timer.
+
+Now let’s talk about how JavaScript handles this problem!
+Click Next to explore how JavaScript handles this problem using asynchronous techniques like callbacks, promises, and async/await.
+
+
