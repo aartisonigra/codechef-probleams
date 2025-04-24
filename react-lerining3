@@ -62,4 +62,10 @@ This is called blocking. Because JavaScript waits for the long task to finish, i
 Now let’s talk about how JavaScript handles this problem!
 Click Next to explore how JavaScript handles this problem using asynchronous techniques like callbacks, promises, and async/await.
 
+--Error Handling in Promises
+Which method is used to handle errors in a Promise chain?
+
+.catch()
+
+
 
