@@ -67,5 +67,32 @@ Which method is used to handle errors in a Promise chain?
 
 .catch()
 
+JavaScript async-await
+Consider this code snippet (assume fetchUser and fetchPosts return Promises):
+
+async function getUserPosts(userId) {
+  try {
+    console.log("Fetching user...");
+    const user = await fetchUser(userId); // Takes 1 second
+    console.log("Fetching posts...");
+    const posts = await fetchPosts(user.id); // Takes 1 second
+    console.log("Done");
+    return posts;
+  } catch (error) {
+    console.error("Failed:", error);
+  }
+}
+
+getUserPosts(123);
+console.log("Function called");
+
+
+ANSWER
+fetching user...
+function called
+fetching posts...
+done
+
+
 
 
