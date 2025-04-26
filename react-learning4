@@ -1,0 +1,26 @@
+JAVASCRIPT ASYC FUNCATION
+
+funcation getdaye() {
+  return new promise(resolve => {
+    console.log("promise started");
+    setTime(() => {
+      console.log("promise resolving");
+      resolve("date");
+      },1000);
+    });
+  }
+
+asyc funcation start() {
+  console.log("before await");
+  const result = await getdate();
+  console.log("after await:",result);
+  }
+start();
+console.log("funcation called");
+
+
+Correct Answer:
+
+Before await -> Promise started -> Function called -> Promise resolving -> After await: data
+Explanation:
+Async function starts and logs "Before await". getData() logs "Promise started" immediately. Then "Function called" is logged. After timeout, it logs "Promise resolving", then "After await".
