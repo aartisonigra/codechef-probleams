@@ -24,3 +24,108 @@ Correct Answer:
 Before await -> Promise started -> Function called -> Promise resolving -> After await: data
 Explanation:
 Async function starts and logs "Before await". getData() logs "Promise started" immediately. Then "Function called" is logged. After timeout, it logs "Promise resolving", then "After await".
+
+Spread and Rest
+The three dots (...) might look simple, but they unlock cleaner and more powerful ways to work with arrays, objects, and function arguments in JavaScript. It has two "modes": Spread and Rest. The key is the context – where you put the ....
+
+1. The Spread Operator (...) - Spreading Things Out
+Think of the Spread operator like opening a container (an array or object) and "spreading" its contents out into another place.
+
+a) Spreading Arrays:
+
+You use ... inside a new array literal [] or when calling a function.
+
+Copying an Array: Create a completely new array with the same elements.
+
+const originalFruits = ['apple', 'banana', 'cherry'];
+const newFruits = [...originalFruits]; // Spread elements into a new array
+
+console.log(newFruits); // Output: ['apple', 'banana', 'cherry']
+console.log(newFruits === originalFruits); // Output: false (It's a new array, not the same one)
+Why is this useful? It helps avoid accidentally changing the original array when you just wanted a copy.
+
+Combining Arrays: Easily merge multiple arrays.
+
+const veggies = ['carrot', 'broccoli'];
+const fruits = ['apple', 'banana'];
+const groceryList = [...veggies, ...fruits, 'bread']; // Spread both arrays and add another item
+
+console.log(groceryList); // Output: ['carrot', 'broccoli', 'apple', 'banana', 'bread']
+Passing Array Elements as Function Arguments: If a function expects multiple individual arguments, you can spread an array into it.
+
+function sum(x, y, z) {
+  return x + y + z;
+}
+
+const numbers = [1, 2, 3];
+
+// Instead of sum(numbers[0], numbers[1], numbers[2])...
+const result = sum(...numbers); // Spreads numbers into arguments: sum(1, 2, 3)
+
+console.log(result); // Output: 6
+b) Spreading Objects (Common in React):
+
+Similar to arrays, you use ... inside a new object literal {}.
+
+Copying an Object: Create a new object with the same properties.
+
+const originalUser = { name: 'Alice', age: 30 };
+const newUser = { ...originalUser }; // Spread properties into a new object
+
+console.log(newUser); // Output: { name: 'Alice', age: 30 }
+console.log(newUser === originalUser); // Output: false (It's a new object)
+Merging Objects: Combine properties from multiple objects. If keys clash, the later object's property wins.
+
+const userDetails = { name: 'Bob', city: 'New York' };
+const userStatus = { loggedIn: true, name: 'Robert' }; // Note the 'name' clash
+
+const mergedUser = { ...userDetails, ...userStatus, isAdmin: false };
+// Properties are applied in order: name:'Bob', city:'New York', loggedIn:true, name:'Robert', isAdmin:false
+
+console.log(mergedUser);
+// Output: { name: 'Robert', city: 'New York', loggedIn: true, isAdmin: false }
+Very useful in React for updating state or merging props.
+
+2. The Rest Operator (...) - Gathering Things Together
+Think of the Rest operator like gathering up the rest of the items or properties into a single container (usually an array or object). You use ... when defining function parameters or during destructuring.
+
+Rest in Function Parameters:
+
+Collect an indefinite number of arguments passed to a function into a single array. It must be the last parameter listed.
+
+// The '...args' gathers all remaining arguments into an array named 'args'
+function logMessages(source, ...messages) {
+  console.log(`Source: ${source}`);
+  console.log('Messages:');
+  messages.forEach(msg => console.log(`- ${msg}`));
+}
+
+logMessages('System', 'User logged in', 'Data loaded', 'Ready');
+// Output:
+// Source: System
+// Messages:
+// - User logged in
+// - Data loaded
+// - Ready
+
+// 'messages' inside the function is the array ['User logged in', 'Data loaded', 'Ready']
+This is much cleaner than the old arguments object.
+
+Summary
+The ... syntax does two things based on context.
+Spread: Used inside [], {}, or function calls. Expands an iterable (like an array) or object properties into individual items. Great for copying, merging, and passing arguments.
+Rest: Used in function parameter definitions or destructuring assignments. Collects multiple elements or properties into a single array or object. Great for variable function arguments and separating properties/elements.
+Mastering Spread and Rest will make your JavaScript code cleaner and more functional, setting a solid foundation for understanding common patterns in React.
+
+
+Spread Operator
+What will be the value of finalArray after the code runs?
+
+const first = [10, 20];
+const second = [40, 50];
+const finalArray = [5, ...first, 30, ...second, 60];
+
+ANSWER:
+[5,10,20,30,40,50,60]
+
+
