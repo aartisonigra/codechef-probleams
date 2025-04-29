@@ -129,3 +129,46 @@ ANSWER:
 [5,10,20,30,40,50,60]
 
 
+Rest Parameters
+What will be the value of otherArgs inside the logStuff function when called as shown?
+
+function logStuff(id, name, ...otherArgs) {
+  // What is otherArgs here?
+  console.log(`ID: ${id}, Name: ${name}`);
+  console.log('Other:', otherArgs);
+}
+
+logStuff(101, 'Widget', 'Blue', true, 50);
+
+Correct Answer:
+
+['Blue', true, 50]
+Explanation:
+The rest parameter ...otherArgs collects all arguments passed after the explicitly named id and name parameters into a single array.
+
+
+Property Overwrites in Object Spreads
+What is the final value of userProfile?
+
+const basicInfo = {
+    name: 'Chris',
+    age: 25
+};
+const contactInfo = {
+    email: 'chris@example.com',
+    name: 'Christopher'
+}; // Note the name conflict
+const userProfile = {
+    ...basicInfo,
+    city: 'London',
+    ...contactInfo
+};
+
+
+Correct Answer:
+
+{ name: 'Christopher', age: 25, city: 'London', email: 'chris@example.com' }
+Explanation:
+Properties are spread in order. The ...contactInfo spread happens last, so its name: 'Christopher' property overwrites the name: 'Chris' from ...basicInfo.
+
+
