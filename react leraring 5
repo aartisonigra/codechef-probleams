@@ -128,4 +128,17 @@ Correct Answer:
 
 const { username } = user;
 Explanation:
-Object destructuring uses curly braces {} and matches variable names to object property names.                                                                                                                                                                 
+Object destructuring uses curly braces {} and matches variable names to object property names.  
+
+Destructuring Arrays
+Consider the following array:
+
+const coordinates = [10, 25, -5];
+
+how can you extract the first elemnets(10) into a variable x and the second elment(25) in to a variable y using destucturing?
+
+Correct Answer:
+
+const [x, y] = coordinates;
+Explanation:
+Array destructuring uses square brackets [] and assigns elements based on their position (index).
