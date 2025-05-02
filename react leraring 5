@@ -142,3 +142,19 @@ Correct Answer:
 const [x, y] = coordinates;
 Explanation:
 Array destructuring uses square brackets [] and assigns elements based on their position (index).
+
+Object Destructuring
+Given this object:
+
+const settings = {
+  theme: 'dark',
+  fontSize: 14
+};
+
+Correct Answer:
+
+const { theme: colorTheme } = settings;
+Explanation:
+Object destructuring allows renaming properties using a colon (:) followed by the new variable name.
+
+
