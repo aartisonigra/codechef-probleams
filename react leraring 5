@@ -157,4 +157,19 @@ const { theme: colorTheme } = settings;
 Explanation:
 Object destructuring allows renaming properties using a colon (:) followed by the new variable name.
 
+Array Destructuring with Rest Operator
+What are the values of first, second, and remaining after this code executes?
+
+const data = ['one', 'two', 'three', 'four', 'five'];
+const [first, second, ...remaining] = data;
+
+Corrent Answer:
+first='one',second ='two',remaining=['three','four','five']
+
+Explanation:
+
+Array destucturing assigns the first elements to first and the secound to second the rest operator...remaining collects all subsequents elements into a new array nam
+named remaining.
+
+
 
