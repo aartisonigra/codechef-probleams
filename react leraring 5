@@ -171,5 +171,19 @@ Explanation:
 Array destucturing assigns the first elements to first and the secound to second the rest operator...remaining collects all subsequents elements into a new array nam
 named remaining.
 
+Destructuring a Specific Element
+Consider this array:
+
+const items = ['apple', 'banana', 'cherry'];
+How can you use array destructuring to get only the third element ('cherry') into a variable named fruit?
+
+
+Correct Answer:
+
+const [ , , fruit ] = items;
+Explanation:
+To skip elements in array destructuring, you use commas (,) as placeholders for the elements you want to ignore.
+
+
 
 
