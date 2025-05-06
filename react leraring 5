@@ -204,5 +204,17 @@ Context 2 only
 Explanation:
 Spread is used to expand elements into a location (like an array literal [] or a function call). Rest is used to gather remaining items (in function parameters or destructuring). Context 2 expands arr1 into arr2.
 
+DEATUCTURING NESTED array of objects
+const users = [
+{id:1,name:'Eve'},
+{id:2,name:'Adam'}
+];
+how can you get the name of the secound user('Adam') into a variable called secoundUserName using a single destucturing assignmenst?
+
+CORRECT ANSWWR:
+const[,{name:secondUserName}] = users;
+
+EXPLANATION:
+This combines array and object destructuring. First, use array destructuring [ , ... ] to skip the first element (user 'Eve') using a comma. Then, for the second element (the object { id: 2, name: 'Adam' }), use object destructuring { name: secondUserName } to extract the name property and rename it to secondUserName. Option C works but isn't a single destructuring assignment starting from users. Option D assigns the first user object to user1, which wasn't required.
 
 
