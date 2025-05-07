@@ -1,0 +1,67 @@
+Map() Method in Javascript
+The map() method is used to create a new array by transforming each item of an existing array using a function you provide. It's like telling JavaScript: “Hey, go through this array, do something to each item, and give me back a new array with the results.” The original array stays untouched, which is great when you want to transform data without modifying the source.
+
+Example 1: Implicit Return
+
+let numbers = [5, 10, 15];
+
+let divided = numbers.map(num => num / 5);
+
+console.log(divided); // Output - [1, 2, 3]
+In this example, we're dividing each number by 5. Since the arrow function is a single line without curly braces, it automatically returns the result. This is called an implicit return, and it's perfect for short, simple operations.
+
+Example 2: Explicit Return
+
+let nums = [1, 2, 3];
+
+let doubled = nums.map(n => {
+  return n * 2;
+});
+
+console.log(doubled); // Output -  [2, 4, 6]
+Here, the arrow function uses curly braces, which means we need to use the return keyword. This is useful when your logic is more than one line or when you want to keep things consistent.
+
+Example 3: Transforming Objects
+
+let users = [
+  { id: 1, name: 'Ava' },
+  { id: 2, name: 'Ben' }
+];
+
+let userInfo = users.map(user => ({
+  userId: user.id,
+  userName: user.name
+}));
+
+console.log(userInfo);
+// Output - [ { userId: 1, userName: 'Ava' }, { userId: 2, userName: 'Ben' } ]
+In this case, we're working with an array of objects. The map() method creates a new array where each object has a different structure. Since we're returning an object directly, we wrap it in parentheses to avoid confusion with a function block. This is a common use case in real apps—reshaping data before displaying it on a UI.
+
+Key Takeaways
+
+map() always returns a new array.
+It doesn't modify the original array.
+Use implicit return for simple expressions.
+Use explicit return if you're using curly braces or need multiple lines.
+It's especially powerful for transforming arrays of objects, like reshaping API data or preparing things for display.
+
+QESTIONS:
+
+Square the Numbers
+You are given an array of integers. Your task is to create a new array where each element is the square of the original array's elements using the map() function.
+
+SOLUTIONs:
+const numbers = [1, 2, 3, 4, 5];
+
+// Using map() to square each number
+const squaredNumbers = numbers.map(number => number * number); 
+
+console.log(squaredNumbers);
+
+
+Explanation:
+The map() function iterates through each element of the numbers array.
+
+For each element, it applies the function number => number * number, which squares the element.
+
+The result is stored in squaredNumbers, and when you log it, it will print [1, 4, 9, 16, 25].
