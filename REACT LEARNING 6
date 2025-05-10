@@ -80,3 +80,35 @@ OUTPUT:
 const words = ['hello', 'world', 'javascript'];
 const uppercaseWords = words.map(word => word.toUpperCase());
 console.log(uppercaseWords);
+-----------------------------------------------------------------------------
+Destructuring Nested Arrays of Objects
+You have an array of objects, where each object represents a product with a name and price. Your goal is to create a new array containing only the price of each product. You must use the .map() method.
+
+Sample 1:
+Input
+Output
+[
+  { name: 'Laptop', price: 1200 },
+  { name: 'Mouse', price: 25 },
+  { name: 'Keyboard', price: 75 }
+]
+[ 1200, 25, 75 ]
+
+SOLUTIONS:
+
+const products = [
+  { name: 'Laptop', price: 1200 },
+  { name: 'Mouse', price: 25 },
+  { name: 'Keyboard', price: 75 }
+];
+//PRODUCT CONTAINS OBJECTS
+//name : name of the products { name: 'Laptop', price: 1200 },
+//price: the price of the products(e.g., 1200, 25, 75).
+
+// complete the code 
+const prices = products.map(({price}) => price);
+//map() : is an array method that create a new array by applying a given funcation to each elemts of the aaray
+console.log(prices);
+
+//Destructuring: ({ price }) is using object destructuring to directly extract the price property from each object in the array.
+//Arrow function (=>): ({ price }) => price is an arrow function that takes an object, extracts the price property, and returns it.
