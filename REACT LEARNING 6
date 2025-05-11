@@ -112,3 +112,40 @@ console.log(prices);
 
 //Destructuring: ({ price }) is using object destructuring to directly extract the price property from each object in the array.
 //Arrow function (=>): ({ price }) => price is an arrow function that takes an object, extracts the price property, and returns it.
+
+INTRODUCATION TO REACT:
+React is a JavaScript library used to build fast and interactive user interfaces for websites. It was created by Facebook (now Meta) to make web development easier and better.
+
+🔍 What is React?
+React helps developers create web pages where content updates automatically when data changes — without refreshing the whole page.
+
+✅ Why is React Important?
+Before React, developers had to write a lot of code to update small parts of a webpage. With React, you can:
+
+🧩 Reuse components – build once and use anywhere
+
+⚡ Update only changed parts using the Virtual DOM
+
+🚀 Improve performance and make apps faster
+
+🎯 Focus only on UI, which makes learning easier
+
+💼 Why Should You Learn React?
+Top companies like Netflix, Instagram, WhatsApp, Airbnb, Uber use React. Learning React helps you:
+
+Get better job opportunities
+
+Build your own modern web apps
+
+Work on real-world projects
+
+📚 Prerequisites
+Before learning React, you should know:
+
+Basic JavaScript
+
+Some modern JS features (like let, const, arrow functions, etc.)
+
+If you’re not comfortable with JavaScript, learn that first.
+
+
