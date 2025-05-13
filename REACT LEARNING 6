@@ -299,3 +299,48 @@ OUTPUT:
 
 Hello, React!
 I am learning JSX!
+
+How JSX Works Behind the Scenes
+Imagine you write some JSX code like this:
+
+const element = <h1>Hello, React!</h1>;
+It looks just like HTML, right? But here’s a secret: browsers don’t actually understand JSX! So, before the browser can display that h1 tag on the screen, JSX needs to be converted into regular JavaScript.
+
+A tool like Babel does this job. It transforms the JSX into something that the browser can understand:
+
+const element = React.createElement('h1', null, 'Hello, React!');
+This React.createElement function tells React what to create (h1), gives it any necessary properties (null for now), and specifies what content goes inside ('Hello, React!').
+
+Now, let's add an attribute, like an id:
+
+// JSX with an attribute
+const title = <h2 id="main-title">Another Title</h2>;
+What Babel turns it into
+
+const jsTitle = React.createElement(
+  'h2',                          // 1. The type: 'h2'
+  { id: 'main-title' },          // 2. The props: an object with id attribute
+  'Another Title'                // 3. The children: the text content
+);
+Notice how the id="main-title" attribute in JSX becomes an object { id: 'main-title' } as the second argument to React.createElement. This props object holds all the attributes you give to the JSX tag.
+
+A Little Brain Teaser!
+JSX might look like HTML, but it’s actually JavaScript! So here’s a quick question for you:
+
+Question:
+What will this JSX code be converted into when processed by Babel?
+
+const element = <button className="btn">Click me!</button>;
+
+Correct Answer:
+
+const element = React.createElement("button", { className: "btn" }, "Click me!");
+Explanation:
+JSX is just a syntactic sugar for React.createElement(). When converted, each JSX element turns into a JavaScript function call:  
+
+const element = React.createElement("button", { className: "btn" }, "Click me!");
+
+- The tag name (`button`) becomes the first argument.  
+- The attributes (`className="btn"`) turn into a JavaScript object.  
+- The content inside (`Click me!`) becomes the third argument.  
+
