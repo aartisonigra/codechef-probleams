@@ -344,3 +344,175 @@ const element = React.createElement("button", { className: "btn" }, "Click me!")
 - The attributes (`className="btn"`) turn into a JavaScript object.  
 - The content inside (`Click me!`) becomes the third argument.  
 
+
+JSX Comments and Type Conversion in React
+When working with JSX in React, there are some special rules to keep in mind, especially for comments and how values are converted. Let’s go through these concepts in a simple way.
+
+Adding Comments in JSX
+In JavaScript, we use // for single-line comments and /* */ for multi-line comments. However, in JSX, we must use multi-line comments inside curly brackets {}.
+
+Example:
+
+const element = (
+  <div>
+    {/* This is how we add a comment in JSX */}
+    <p>Hello World!</p>
+  </div>
+);
+✅ Correct: {/* Comment here */}
+❌ Incorrect: // Comment here (This will render the text as it is)
+
+This happens because JSX treats everything inside curly braces {} as JavaScript. A single-line comment (//) would break the JSX syntax.
+
+How JSX Handles Different Types of Values
+JSX automatically converts some values (like numbers and booleans) into strings when needed.
+
+Boolean Values in JSX
+For attributes like checked, disabled, or required, you can pass values as strings or actual booleans. Both work, but JSX makes sure they are handled correctly.
+
+// Both are valid!
+<input type="checkbox" checked="true" />
+<input type="checkbox" checked={true} />
+How JSX handles it:
+
+"true" (as a string) is converted as needed.
+{true} (as a boolean) is used directly.
+Numbers in JSX
+JSX also converts numbers automatically when you use them in attributes like min and max.
+
+// Both are correct!
+<input type="range" min="5" max="100" />
+<input type="range" min={5} max={100} />
+React treats these the same because it automatically converts {5} and {100} into strings when needed in HTML attributes.
+
+Key Things to Remember
+JSX expressions use {} to include JavaScript inside HTML-like code.
+Comments in JSX must always be written inside {/* */} brackets.
+React automatically converts numbers and booleans to strings where needed.
+JSX treats everything outside {} as plain text.
+
+Differences Between HTML and JSX
+JSX may look similar to HTML, but there are a few important differences that you need to be aware of when working with React. Below, we'll explore those differences and how JSX differs from regular HTML.
+
+Reserved Words
+JavaScript has several reserved words with built-in functionality. Since JSX gets converted into JavaScript, we cannot use these reserved words as attribute names in JSX.
+
+For example, in HTML we might write:
+
+<label for="name">Name:</label>
+<input id="name" class="input-field" />
+However, in JSX, for and class are reserved words. To avoid conflicts, React uses:
+
+for → htmlFor
+class → className
+So the correct JSX version would be:
+
+<label htmlFor="name">Name:</label>
+<input id="name" className="input-field" />
+Self-Closing Tags
+In HTML, some tags don’t need to be explicitly closed, like:
+
+<img src="image.png">
+However, JSX requires all tags to be closed properly:
+
+<img src="image.png" />
+Without the /, JSX will throw an error.
+
+Case Sensitivity in Tags
+In HTML, we can write tags in uppercase or lowercase:
+
+<HEADER>
+  <H1>Hello World!</H1>
+</HEADER>
+However, JSX is case-sensitive, meaning that tags must be written in lowercase:
+
+<header>
+  <h1>Hello World!</h1>
+</header>
+This is because JSX uses the case of the tag to determine whether it is an HTML element or a custom component.
+
+CamelCase for Attributes
+In JSX, multi-word attributes must be written in camelCase.
+For example, instead of this HTML:
+
+<video autoplay></video>
+We use this JSX:
+
+<video autoPlay={true} />
+Some other examples include:
+
+onclick → onClick
+tabindex → tabIndex
+stroke-dasharray → strokeDasharray
+Data and ARIA Attributes
+There are two exceptions where dashes are allowed:
+
+data-* attributes (used for storing custom data)
+aria-* attributes (for accessibility)
+For example:
+
+<button data-test-id="submit-btn" aria-label="Submit">
+  Submit
+</button>
+
+
+Inline Styles in JSX
+In JSX, styles are applied using an object with camelCase property names, differing from regular HTML, where styles are written as strings.
+
+1. Inline Styles in JSX
+In HTML, styles are written as a string:
+
+<h1 style="color: red;">Hello World!</h1>
+In JSX, styles are passed as an object inside double curly brackets { { } }:
+
+<h1 style={{ color: 'red' }}>Hello World!</h1>
+🔹 The first {} tells React you're writing JavaScript.
+🔹 The second {} contains the style object with key-value pairs.
+
+2. CamelCase for CSS Properties
+Notice background-color in HTML became backgroundColor in JSX? In JavaScript objects, you can't have hyphens in property names. So, CSS properties like font-size or text-align become fontSize and textAlign in JSX style objects. This "camelCase" naming is standard.
+
+3. React Automatically Appends "px"
+For certain properties, React assumes "px" if you pass a number:
+
+<div style={{ width: 200 }}>Hello</div>  
+// React interprets this as width: 200px
+However, some properties (e.g., lineHeight and opacity) do not assume "px":
+
+<p style={{ lineHeight: 20 }}>Hello</p>  
+// React treats this as 20, not 20px
+To explicitly ensure "px", provide the value as a string:
+
+<p style={{ lineHeight: '20px', backgroundColor: 'lightblue' }}>Hello</p>
+Task: Apply Inline Styles in JSX
+In this task, you will create a React component that applies inline styles to a <div>.
+
+Task Requirements:
+Update the component named StyledBox that:
+
+Has a width of 200px.
+Has a height of 100px.
+
+SOLUTIONS:
+
+import react from 'react';
+
+export default function StyledBox() {
+  return (
+    <div
+      style={{
+        width: '200px',          
+        height: '100px',         
+        backgroundColor: 'lightblue',
+        color: 'white',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '18px'
+      }}
+    >
+      Styled Box
+    </div>
+  );
+}
+
