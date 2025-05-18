@@ -516,3 +516,23 @@ export default function StyledBox() {
   );
 }
 
+Differences Between HTML and JSX
+Valid HTML:
+
+<DIV class="container">
+  <p>Hello, World!</p>
+</DIV>
+Broken JSX:
+
+<DIV class="container">
+  <p>Hello, World!</p>
+</DIV>
+
+Correct Answer(s):
+
+a. <DIV>
+b. class="container"
+Explanation:
+In JSX, <DIV> (uppercase) is invalid as tags must be lowercase, and class is replaced with className. The correct JSX would use <div className="container">. So, a and b are incorrect.
+
+
