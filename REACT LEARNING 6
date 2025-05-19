@@ -535,4 +535,40 @@ b. class="container"
 Explanation:
 In JSX, <DIV> (uppercase) is invalid as tags must be lowercase, and class is replaced with className. The correct JSX would use <div className="container">. So, a and b are incorrect.
 
+Differences Between HTML and JSX
+Valid HTML:
+
+<img src="logo.png" class="icon" style="width: 50px">  
+<label for="username">Username</label>  
+<input type="checkbox" checked>  
+<button onclick="submit()">Submit</button>  
+Broken JSX:
+
+<Img src="logo.png" className="icon" style="width: 50px" />  
+<label for="username">Username</label>  
+<input type="checkbox" checked="true" />  
+<button onclick={submit()}>Click</button>  
+
+
+Correct Answer(s):
+
+a. <Img>
+b. style="width: 50px"
+c. for="username"
+d. checked="true"
+e. onclick={submit()}
+Explanation:
+<Img> → Must be lowercase (<img />).
+
+class → Should be className.
+
+style="..." → Requires object syntax: style={{ width: '50px' }}.
+
+for="username" → Rename to htmlFor.
+
+checked="true" → Use checked={true}.
+
+onclick → CamelCase to onClick, and use submit (not submit()).
+
+
 
