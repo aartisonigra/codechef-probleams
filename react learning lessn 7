@@ -235,3 +235,60 @@ function App() {
 }
 
 export default App; // Exporting the App component for use in the application
+
+
+PROBELMAS:
+
+Props in React
+We have already created a greeting card in the last lesson! Now, we will use components and props to make the solution more efficient and reusable.
+
+Your Task:
+Create a reusable component <GreetingCard /> that takes name, age, and greeting as props.
+Use instances of <GreetingCard /> inside the App component with values for name, age, and greeting.
+Make sure not change the messages.
+
+
+SOLUTIONS:
+
+// Reusable GreetingCard component
+export function GreetingCard({ name, age, greeting }) {
+    const cardStyle = {
+      border: "2px solid #333",
+      padding: "20px",
+      borderRadius: "10px",
+      width: "250px",
+      textAlign: "center",
+      boxShadow: "2px 2px 10px rgba(0,0,0,0.1)"
+    };
+  
+    const headingStyle = {
+      color: "blue",
+      fontSize: "20px"
+    };
+  
+    return (
+      <div style={cardStyle}>
+        <h2 style={headingStyle}>{greeting}</h2>
+  
+        <p>Hello, my name is {name}.</p>
+        <p>I am {age} years old.</p>
+  
+        <p>Year: {new Date().getFullYear()}</p>
+  
+        <p>Enjoy your day! 🎉</p>
+      </div>
+    );
+  }
+  
+  // App component using GreetingCard
+  export function App() {
+    return (
+      <>
+        <GreetingCard name="John" age={25} greeting="Happy Birthday!" />
+        <GreetingCard name="Alice" age={30} greeting="Congratulations!" />
+      </>
+    );
+  }
+  
+  export default App;
+  
