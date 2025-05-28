@@ -291,4 +291,78 @@ export function GreetingCard({ name, age, greeting }) {
   }
   
   export default App;
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Task
+In this task, you will create a Profile Card component using React. This will involve JSX, React components, props, and basic CSS styling.
+
+1. Create a ProfileCard Component
+This component should receive the following props:
+name → The person’s name
+bio → A short description about the person
+avatarUrl → URL of the person's profile image
+Inside the component, display these props properly using JSX.
+2. Use the ProfileCard Component inside App.js
+Inside the App component, render the ProfileCard component.
+Pass appropriate values for name, bio, and avatarUrl (make sure name, bio, avatarUrl not be null).
+
+import React from "react";
+
+// ProfileCard Component
+const ProfileCard = ({ name, bio, avatarUrl }) => {
+  const cardStyle = {
+    border: "2px solid #333",
+    padding: "20px",
+    borderRadius: "10px",
+    width: "250px",
+    textAlign: "center",
+    boxShadow: "2px 2px 10px rgba(0,0,0,0.1)",
+    fontFamily: "Arial, sans-serif",
+    margin: "auto",
+  };
+
+  const headingStyle = {
+    color: "blue",
+    fontSize: "20px",
+  };
+
+  const avatarStyle = {
+    width: "100px",
+    height: "100px",
+    borderRadius: "50%",
+    marginBottom: "10px",
+  };
+
+  return (
+    <div style={cardStyle}>
+      <img src={avatarUrl} alt={`${name}'s avatar`} style={avatarStyle} />
+      <h2 style={headingStyle}>{name}</h2>
+      <p>{bio}</p>
+    </div>
+  );
+};
+
+// App Component
+const App = () => {
+  const avatarUrl =
+    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
+
+  const name = "Aarti Sonigra";
+  const bio = "A passionate web developer and Java enthusiast.";
+
+  return (
+    <div>
+      <h1 style={{ textAlign: "center", fontFamily: "Arial, sans-serif" }}>
+        My Profile Card
+      </h1>
+
+      {/* Render ProfileCard with props */}
+      <ProfileCard name={name} bio={bio} avatarUrl={avatarUrl} />
+    </div>
+  );
+};
+
+export default App;
+
   
