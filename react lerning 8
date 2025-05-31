@@ -1,0 +1,59 @@
+Conditional Rendering
+if Statement in React
+In React, conditional rendering helps us decide what to display based on certain conditions. Using the if statement, we can control which components appear in the UI.
+
+Example: Using if in a Component
+Here’s a simple example that checks if a user is logged in and displays different messages accordingly.
+
+function WelcomeMessage ({ isLoggedIn }){
+  if (isLoggedIn) {
+    return <h2>Welcome back, User! 🎉</h2>;
+  } else {
+    return <h2>Please log in to continue.</h2>;
+  }
+};
+
+function App() {
+  const userLoggedIn = true; // Change to false to see the other message
+  
+  return (
+    <div>
+      <WelcomeMessage isLoggedIn={userLoggedIn} />
+    </div>
+  );
+}
+
+Task:
+Show Discount Message Based on User Membership
+
+Update a component named DiscountMessage that checks if a user is a premium member and displays:
+
+"You get a 20% discount!" if they are a premium member.
+"Sign up for premium to unlock discounts!" if they are not.
+
+SOLTUIONS:
+
+import React from 'react';
+
+// ✅ DiscountMessage component
+export function DiscountMessage({ isPremiumMember }) {
+  if (isPremiumMember) {
+    return <h2>You get a 20% discount! 🎁</h2>;
+  } else {
+    return <h2>Sign up for premium to unlock discounts! 🚀</h2>;
+  }
+}
+
+// ✅ Main App component
+function App() {
+  const isPremiumMember = true; // 🔁 false कर के चेक कर सकते हो
+
+  return (
+    <div>
+      <h1>Welcome to Our Store!</h1>
+      <DiscountMessage isPremiumMember={isPremiumMember} />
+    </div>
+  );
+}
+
+export default App;
