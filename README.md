@@ -18,3 +18,5 @@
 |2025-05-18 | (https://www.codechef.com/learn/course/react-js/CREACT002/problems/PREACT009)
 
 |2025-05-22 | (https://www.codechef.com/learn/course/react-js/CREACT003/problems/PREACT014?folder=%2Fhome%2Fchef%2Fworkspace)
+
+|2025-05-31 | (https://www.codechef.com/learn/course/react-js/CREACT005/problems/PREACT023?folder=%2Fhome%2Fchef%2Fworkspace)
