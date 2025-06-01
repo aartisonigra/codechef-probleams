@@ -57,3 +57,41 @@ function App() {
 }
 
 export default App;
+
+
+Ternary Operator in React
+In React, conditional rendering allows us to render different UI elements based on certain conditions. One of the common ways to achieve this is by using the ternary operator {condition ? trueValue : falseValue}.
+
+Example:
+Let's say we want to display a message based on a user's login status.
+
+const UserGreeting = ({ isLoggedIn }) => {
+  return (
+    <div>
+      {isLoggedIn ? <h1>Welcome, User!</h1> : <h1>Please log in</h1>}
+    </div>
+  );
+};
+Explanation:
+If isLoggedIn is true, it displays "Welcome, User!".
+If isLoggedIn is false, it displays "Please log in".
+The ternary operator {isLoggedIn ? <h1>Welcome, User!</h1> : <h1>Please log in</h1>} helps us switch between the two components dynamically. 
+
+// This component displays the light status based on the `isLightOn` prop.
+export function LightStatus({ isLightOn }) {
+  {/* If `isLightOn` is true, it shows "Lights ON", otherwise "Lights OFF" */}
+  return (
+
+
+      
+
+  );
+}
+
+// Main App component
+export default function App() {
+  return (
+    <LightStatus isLightOn={true} />
+  );
+}
+
